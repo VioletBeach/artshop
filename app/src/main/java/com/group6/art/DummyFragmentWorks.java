@@ -10,6 +10,8 @@ import android.widget.FrameLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 
@@ -36,25 +38,33 @@ public class DummyFragmentWorks extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_dummy);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        StaggeredGridLayoutManager staggeredGridLayoutManager  = new StaggeredGridLayoutManager(2,1);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager );
+        staggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemViewCacheSize(20);
         recyclerView.setDrawingCacheEnabled(true);
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-
+        RecyclerView.ItemAnimator animator = recyclerView.getItemAnimator();
+        if (animator instanceof SimpleItemAnimator) {
+            ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
+        }
         dummyList = new ArrayList<>();
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach", "Saturday, AUG ","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Bea", "Saturday, AU","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach ", "Saturday, AUG","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach ", "Saturday,","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beac", "Saturday, AUG and","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm od Fest", "Saturdayode Isand","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "Saturday, AUG 23 - AUG 25 @ Rode Island","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "Saturday, AUG 23 - AUG 25 @ Rode Island","3.46"));
+        dummyList.add(new DummyItem(R.drawable.writer1, "Palm Beach", "리니 일러스트","3.46"));
+        dummyList.add(new DummyItem(R.drawable.writer2, "Palm Bea", "제2의 피카소","3.46"));
+        dummyList.add(new DummyItem(R.drawable.writer5, "Palm Beach ", "그림매니아1","3.46"));
+        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach ", "David Hockney","3.46"));
+        dummyList.add(new DummyItem(R.drawable.writer6, "Palm Beac", "STAR DREAM3","3.46"));
+        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm od Fest", "화가 준비생","3.46"));
+        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "LJ 아티스트","3.46"));
+        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "사랑의 그림방","3.46"));
+        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "꿈나무작가","3.46"));
+        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "Jaeheon DRAW","3.46"));
 
         dummyAdapter = new DummyAdapter(dummyList, getContext());
         dummyAdapter.setHasStableIds(true);
+
+
         recyclerView.setAdapter(dummyAdapter);
 
         return view;

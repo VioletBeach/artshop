@@ -7,13 +7,12 @@
     android:layout_margin="10dp"
     android:orientation="vertical"
     android:fontFamily="@font/font"
-    android:id="@+id/item_all"
     >
 
     <ImageView
         android:id="@+id/img_dummy"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_foreground" />
 

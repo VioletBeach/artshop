@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 
@@ -44,18 +46,21 @@ public class DummyFragmentWriters extends Fragment {
         recyclerView.setItemViewCacheSize(20);
         recyclerView.setDrawingCacheEnabled(true);
         recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-
+        RecyclerView.ItemAnimator animator = recyclerView.getItemAnimator();
+        if (animator instanceof SimpleItemAnimator) {
+            ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
+        }
         dummyList = new ArrayList<>();
 
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "제2의 피카소", "작품수 : 7","9.47"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "리니 일러스트", "작품수 : 13","9.31"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "JYR PARK5331", "작품수 : 8","9.16"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "그림매니아1", "작품수 : 10","8.92"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "David Hockney", "작품수 : 6","8.79"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "꿈을 꾸는 작가", "작품수 : 13","8.72"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "STAR DREAM3", "작품수 : 8","8.64"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "나름 화가 준비생", "작품수 : 10","8.51"));
-        dummyAdapter = new DummyAdapter(dummyList, getContext());
+        dummyList.add(new DummyItem(R.drawable.writer10, "리니 일러스트", "작품수 : 13","9.31"));
+        dummyList.add(new DummyItem(R.drawable.writer3, "JYR PARK5331", "작품수 : 8","9.16"));
+        dummyList.add(new DummyItem(R.drawable.writer4, "그림매니아1", "작품수 : 10","8.92"));
+        dummyList.add(new DummyItem(R.drawable.writer5, "David Hockney", "작품수 : 6","8.79"));
+        dummyList.add(new DummyItem(R.drawable.writer6, "꿈을 꾸는 작가", "작품수 : 13","8.72"));
+        dummyList.add(new DummyItem(R.drawable.writer7, "STAR DREAM3", "작품수 : 8","8.64"));
+        dummyList.add(new DummyItem(R.drawable.writer1, "화가 준비생", "작품수 : 10","8.51"));
+        dummyList.add(new DummyItem(R.drawable.writer9, "LJ 아티스트", "작품수 : 11","8.44"));
+        dummyAdapter= new DummyAdapter(dummyList, getContext());
         dummyAdapter.setHasStableIds(true);
         recyclerView.setAdapter(dummyAdapter);
 

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +18,7 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
 
     ArrayList<DummyItem> dummyList;
     Context dummyContext;
+
 
     public DummyAdapter(ArrayList<DummyItem> dummyList, Context dummyContext) {
         this.dummyList = dummyList;
@@ -54,11 +56,29 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
         public DummyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+
             imgDummyHeader = itemView.findViewById(R.id.img_dummy);
             tvDummyTitle = itemView.findViewById(R.id.tv_dummy_title);
             tvDummySubtitle = itemView.findViewById(R.id.tv_dummy_subtitle);
             tvDummyscore = itemView.findViewById(R.id.tv_dummy_score);
+            //
+            itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION)
+                    {
+                        imgDummyHeader.setImageResource(R.drawable.logo);
+                        tvDummyTitle.setText("클릭이벤트");
+                        // click event
+                    }
+                }
+            });
+            //
 
         }
     }
+
 }
