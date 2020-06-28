@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -46,6 +47,10 @@ import java.io.IOException;
 
 
 public class InsertWorks extends AppCompatActivity {
+
+
+
+
     ImageView insertImage,backImage,logo;
     Button insertWorksCancel,insertWorksFinish;
     EditText insertWorksEdit;
@@ -127,6 +132,9 @@ public class InsertWorks extends AppCompatActivity {
 
 
     }
+
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //request코드가 0이고 OK를 선택했고 data에 뭔가가 들어 있다면
@@ -137,6 +145,7 @@ public class InsertWorks extends AppCompatActivity {
                 //Uri 파일을 Bitmap으로 만들어서 ImageView에 집어 넣는다.
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 ivPreview.setImageBitmap(bitmap);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

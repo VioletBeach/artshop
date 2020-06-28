@@ -12,12 +12,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 
 public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHolder> {
 
     ArrayList<DummyItem> dummyList;
     Context dummyContext;
+
+
+
+
 
 
     public DummyAdapter(ArrayList<DummyItem> dummyList, Context dummyContext) {
@@ -61,6 +69,21 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
             tvDummyTitle = itemView.findViewById(R.id.tv_dummy_title);
             tvDummySubtitle = itemView.findViewById(R.id.tv_dummy_subtitle);
             tvDummyscore = itemView.findViewById(R.id.tv_dummy_score);
+
+
+
+                StorageReference ref = FirebaseStorage.getInstance().getReference("images/20200603_1819.png"); //파이어베이스에서 이미지 값 가져오기
+                // Download directly from StorageReference using Glide
+                // (See MyAppGlideModule for Loader registration)
+
+                Glide.with(itemView) // 프래그먼트 지정
+                        .load(ref) // 이미지 주소 가져오기 ref값
+                        .into(imgDummyHeader); // 해당 이미지뷰에 load값 출력
+
+
+
+
+
             //
             itemView.setOnClickListener(new View.OnClickListener()
             {
