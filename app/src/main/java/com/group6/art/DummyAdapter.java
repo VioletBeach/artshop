@@ -27,7 +27,6 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
 
 
 
-
     public DummyAdapter(ArrayList<DummyItem> dummyList, Context dummyContext) {
         this.dummyList = dummyList;
         this.dummyContext = dummyContext;
