@@ -24,6 +24,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     Button assessbtn,insertbtn;
     ImageView userPage,menuImage,logo;
+    int point=0;
     static boolean isFirst=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
                     assessbtn.setBackgroundResource(R.drawable.btn_set_touch);
                 } else if(event.getAction() == MotionEvent.ACTION_UP) {
                     assessbtn.setBackgroundResource(R.drawable.btn_set);
-                    Intent intent = new Intent(getApplicationContext(),AssessWorks.class);
-                    startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this,AssessWorks.class);
+                    intent.putExtra("point", point);
+                    startActivityForResult(intent,1234);
                 }
                 return false;
             }
@@ -129,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
     private void initViewPager() {
         viewPager = findViewById(R.id.viewpager_home);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DummyFragment(ContextCompat.getColor(this, R.color.bg)), "작 품");
-        adapter.addFrag(new DummyFragment(ContextCompat.getColor(this, R.color.bg)), "작 가");
+        adapter.addFrag(new DummyFragmentWorks(ContextCompat.getColor(this, R.color.bg)), "작 품");
+        adapter.addFrag(new DummyFragmentWriters(ContextCompat.getColor(this, R.color.bg)), "작 가");
         viewPager.setAdapter(adapter);
     }
 
@@ -189,4 +192,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     // <- 탭뷰 리사이러클뷰 끝
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1234 && resultCode == RESULT_OK){
+            point = data.getIntExtra("point",point);
+        }else{
+        }
+    }
 }

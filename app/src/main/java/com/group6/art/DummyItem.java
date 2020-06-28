@@ -5,11 +5,13 @@ public class DummyItem {
     int intDummyImage;
     String strDummyTitle;
     String strDummySubtitle;
+    String strDummyScore;
 
-    public DummyItem(int intDummyImage, String strDummyTitle, String strDummySubtitle) {
+    public DummyItem(int intDummyImage, String strDummyTitle, String strDummySubtitle,String strDummyScore) {
         this.intDummyImage = intDummyImage;
         this.strDummyTitle = strDummyTitle;
         this.strDummySubtitle = strDummySubtitle;
+        this.strDummyScore = strDummyScore;
     }
 
     public int getIntDummyImage() {
@@ -27,6 +29,15 @@ public class DummyItem {
     public void setStrDummyTitle(String strDummyTitle) {
         this.strDummyTitle = strDummyTitle;
     }
+
+    public String getStrDummyScore() {
+        return strDummyScore;
+    }
+
+    public void setStrDummyScore(String strDummyScore) {
+        this.strDummyScore = strDummyScore;
+    }
+
 
     public String getStrDummySubtitle() {
         return strDummySubtitle;

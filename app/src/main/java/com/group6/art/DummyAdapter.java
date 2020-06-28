@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
         holder.imgDummyHeader.setImageResource(dummyItem.getIntDummyImage());
         holder.tvDummyTitle.setText(dummyItem.getStrDummyTitle());
         holder.tvDummySubtitle.setText(dummyItem.getStrDummySubtitle());
+        holder.tvDummyscore.setText(dummyItem.getStrDummyScore());
     }
 
     @Override
@@ -47,6 +49,7 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
 
         ImageView imgDummyHeader;
         TextView tvDummyTitle, tvDummySubtitle;
+        Button tvDummyscore;
 
         public DummyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +57,7 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
             imgDummyHeader = itemView.findViewById(R.id.img_dummy);
             tvDummyTitle = itemView.findViewById(R.id.tv_dummy_title);
             tvDummySubtitle = itemView.findViewById(R.id.tv_dummy_subtitle);
+            tvDummyscore = itemView.findViewById(R.id.tv_dummy_score);
 
         }
     }
