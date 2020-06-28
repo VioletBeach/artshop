@@ -13,6 +13,11 @@ public class DummyItem {
         this.strDummySubtitle = strDummySubtitle;
         this.strDummyScore = strDummyScore;
     }
+    public DummyItem(int intDummyImage, String strDummyTitle, String strDummySubtitle) {
+        this.intDummyImage = intDummyImage;
+        this.strDummyTitle = strDummyTitle;
+        this.strDummySubtitle = strDummySubtitle;
+    }
 
     public int getIntDummyImage() {
         return intDummyImage;
