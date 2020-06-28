@@ -69,8 +69,6 @@ public class DummyFragmentWorks extends Fragment {
         dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm od Fest", "화가 준비생","3.46"));
         dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "LJ 아티스트","3.46"));
         dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "사랑의 그림방","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "꿈나무작가","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "Jaeheon DRAW","3.46"));
 
         dummyAdapter = new DummyAdapter(dummyList, getContext());
         dummyAdapter.setHasStableIds(true);
