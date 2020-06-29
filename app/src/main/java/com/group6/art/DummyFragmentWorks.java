@@ -1,6 +1,7 @@
 package com.group6.art;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public class DummyFragmentWorks extends Fragment {
     int dummyColor;
@@ -72,9 +75,8 @@ public class DummyFragmentWorks extends Fragment {
 
         dummyAdapter = new DummyAdapter(dummyList, getContext());
         dummyAdapter.setHasStableIds(true);
-
-
         recyclerView.setAdapter(dummyAdapter);
+
 
         return view;
     }

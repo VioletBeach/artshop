@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:id="@+id/appcolor"
+
             >
             <ImageView
                 android:layout_width="37dp"

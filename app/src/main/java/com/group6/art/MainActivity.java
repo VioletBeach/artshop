@@ -85,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
         //버튼끝
         userPage.setOnClickListener(new View.OnClickListener() {
             @Override

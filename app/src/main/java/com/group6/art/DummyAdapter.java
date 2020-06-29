@@ -1,6 +1,7 @@
 package com.group6.art;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,8 +66,7 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
             tvDummySubtitle = itemView.findViewById(R.id.tv_dummy_subtitle);
             tvDummyscore = itemView.findViewById(R.id.tv_dummy_score);
 
-
-/*
+            /*
                 StorageReference ref = FirebaseStorage.getInstance().getReference("images/20200603_1819.png"); //파이어베이스에서 이미지 값 가져오기
                 // Download directly from StorageReference using Glide
                 // (See MyAppGlideModule for Loader registration)
@@ -88,8 +88,8 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION)
                     {
-                        imgDummyHeader.setImageResource(R.drawable.logo);
-                        tvDummyTitle.setText("클릭이벤트");
+                        Intent intent=new Intent(dummyContext,WorkLook.class);
+                        dummyContext.startActivity(intent);
                         // click event
                     }
                 }
@@ -98,5 +98,6 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
 
         }
     }
+
 
 }

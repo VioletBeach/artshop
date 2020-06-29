@@ -30,6 +30,9 @@
         <activity
             android:name=".InsertWorks"
             ></activity>
+        <activity
+            android:name=".WorkLook"
+            ></activity>
         <activity android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:noHistory="true" />
