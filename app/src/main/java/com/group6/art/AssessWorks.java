@@ -66,7 +66,7 @@ R.drawable.work6,R.drawable.work7,R.drawable.work8};
                 }
                     else {
                     point++;
-                    Toast.makeText(getApplicationContext(), ""+(int)ratingBar.getRating()*2+"점으로 평가가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), ""+(int)((ratingBar.getRating()*2)+0.1)+"점으로 평가가 완료되었습니다.", Toast.LENGTH_SHORT).show();
                     int random = (int) (java.lang.Math.random() * 8);
                     work_image.setImageResource(resource[random]);
                     work_title.setText(randomtitle[random]);
