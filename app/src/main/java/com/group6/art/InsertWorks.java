@@ -30,6 +30,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -37,18 +43,27 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
-
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class InsertWorks extends AppCompatActivity {
 
-
+    DatabaseReference mDBReference, postref  = null;
+    HashMap<String, Object> childUpdates = null;
+    Map<String, Object> userValue = null;
+    Post post = null;
+    List<Post> datas = new ArrayList<>();
+    String poname;
+    long postcount;
 
 
     ImageView insertImage,backImage,logo;
@@ -157,17 +172,14 @@ public class InsertWorks extends AppCompatActivity {
         //업로드할 파일이 있으면 수행
         if (filePath != null) {
             //업로드 진행 Dialog 보이기
-            final ProgressDialog progressDialog = new ProgressDialog(this);
-            progressDialog.setTitle("업로드중...");
-            progressDialog.show();
 
+            poname = insertWorksEdit.getText().toString().trim();
             //storage
             FirebaseStorage storage = FirebaseStorage.getInstance();
 
             //Unique한 파일명을 만들기
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMHH_mmss");
-            Date now = new Date();
-            String filename = formatter.format(now) + ".png";
+
+            String filename = poname + ".png";
             //storage 주소와 폴더 파일명을 지정해 준다.
             StorageReference storageRef = storage.getReferenceFromUrl("gs://server-1d2e3.appspot.com").child("images/" + filename);
             //올라가거라...
@@ -176,7 +188,6 @@ public class InsertWorks extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            progressDialog.dismiss(); //업로드 진행 Dialog 상자 닫기
                             Toast.makeText(getApplicationContext(), "업로드 완료!", Toast.LENGTH_SHORT).show();
                         }
                     })
@@ -184,7 +195,6 @@ public class InsertWorks extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "업로드 실패!", Toast.LENGTH_SHORT).show();
                         }
                     })
@@ -195,9 +205,50 @@ public class InsertWorks extends AppCompatActivity {
                             @SuppressWarnings("VisibleForTests") //이걸 넣어 줘야 아랫줄에 에러가 사라진다.
                                     double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
                             //dialog에 진행률을 퍼센트로 출력해 준다
-                            progressDialog.setMessage("Uploaded " + ((int) progress) + "% ...");
                         }
                     });
+
+            mDBReference = FirebaseDatabase.getInstance().getReference();
+
+
+            postref = FirebaseDatabase.getInstance().getReference().child("posts");
+
+
+            Query recentPostsQuery = postref.orderByChild("postnum");
+
+
+            recentPostsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    long numChildren = dataSnapshot.getChildrenCount();
+                    String value = dataSnapshot.getValue().toString();
+                    Log.d("Database", "Value is: " + value);
+                    postcount = numChildren;
+                    System.out.println(" == " + numChildren);
+                    Log.d("Database", "Value is: " + numChildren);
+
+                    DatabaseReference hopperRef = postref.child(poname);
+                    Map<String, Object> hopperUpdates = new HashMap<>();
+                    hopperUpdates.put("postnum", Long.toString(postcount));
+                    hopperRef.updateChildren(hopperUpdates);
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {}
+            });
+
+            childUpdates = new HashMap<>();
+            if(true){
+                post = new Post(poname, Long.toString(postcount), "0","0","20171447");
+                userValue = post.toMap();
+            }
+
+            childUpdates.put("/posts/" + poname, userValue);
+
+            mDBReference.updateChildren(childUpdates);
+
+
         } else {
             Toast.makeText(getApplicationContext(), "파일을 먼저 선택하세요.", Toast.LENGTH_SHORT).show();
         }

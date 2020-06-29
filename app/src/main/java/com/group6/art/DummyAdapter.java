@@ -26,6 +26,7 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
 
     ArrayList<DummyItem> dummyList;
     Context dummyContext;
+    String poname = "spa";
 
     public DummyAdapter(ArrayList<DummyItem> dummyList, Context dummyContext) {
         this.dummyList = dummyList;
@@ -85,19 +86,21 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
 
 
 
+
 /*
-                StorageReference ref = FirebaseStorage.getInstance().getReference("images/20200603_1820.png"); //파이어베이스에서 이미지 값 가져오기
+                StorageReference ref = FirebaseStorage.getInstance().getReference("images/"+poname+".png"); //파이어베이스에서 이미지 값 가져오기
                 // Download directly from StorageReference using Glide
                 // (See MyAppGlideModule for Loader registration)
 
                 Glide.with(itemView) // 프래그먼트 지정
                         .load(ref) // 이미지 주소 가져오기 ref값
                         .into(imgDummyHeader); // 해당 이미지뷰에 load값 출력
-
-
-
-
 */
+
+
+
+
+
             //
 
             itemView.setOnClickListener(new View.OnClickListener()
