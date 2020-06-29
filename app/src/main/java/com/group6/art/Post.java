@@ -10,6 +10,8 @@ public class Post {
     public String point; //게시글 점수
     public String date; // 날짜
 
+
+
     public Post(String postname, String postnum , String recommend , String point , String date) {
         this.postname = postname;
         this.postnum = postnum;

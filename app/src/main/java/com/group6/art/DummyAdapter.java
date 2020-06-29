@@ -101,7 +101,6 @@ public class DummyAdapter extends RecyclerView.Adapter<DummyAdapter.DummyViewHol
 
 
 
-            //
 
             itemView.setOnClickListener(new View.OnClickListener()
             {
