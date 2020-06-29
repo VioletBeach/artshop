@@ -64,15 +64,15 @@ public class DummyFragmentWorks extends Fragment {
             ((SimpleItemAnimator) animator).setSupportsChangeAnimations(false);
         }
         dummyList = new ArrayList<>();
-        dummyList.add(new DummyItem(R.drawable.writer1, "Palm Beach", "리니 일러스트","3.46"));
-        dummyList.add(new DummyItem(R.drawable.writer2, "Palm Bea", "제2의 피카소","3.46"));
-        dummyList.add(new DummyItem(R.drawable.writer5, "Palm Beach ", "그림매니아1","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach ", "David Hockney","3.46"));
-        dummyList.add(new DummyItem(R.drawable.writer6, "Palm Beac", "STAR DREAM3","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm od Fest", "화가 준비생","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "LJ 아티스트","3.46"));
-        dummyList.add(new DummyItem(R.drawable.ic_launcher_background, "Palm Beach Food Fest", "사랑의 그림방","3.46"));
-
+        dummyList.add(new DummyItem(R.drawable.work1, "스파클", "리니 일러스트","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work2, "보석같은 눈", "제2의 피카소","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work3, "봄과 벚꽃, 너", "그림매니아1","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work4, "노을 위 설산", "David Hockney","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work5, "꽃잎 만개", "STAR DREAM3","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work6, "호수와 가을", "화가 준비생","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work7, "사계절이 흐른다", "LJ 아티스트","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work8, "해바라기 소녀", "사랑의 그림방","3.46"));
+        dummyList.add(new DummyItem(R.drawable.work9, "공허한 정류장", "사랑의 그림방","3.46"));
         dummyAdapter = new DummyAdapter(dummyList, getContext());
         dummyAdapter.setHasStableIds(true);
         recyclerView.setAdapter(dummyAdapter);

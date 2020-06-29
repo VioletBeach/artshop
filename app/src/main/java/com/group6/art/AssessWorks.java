@@ -107,7 +107,7 @@ class Listener implements RatingBar.OnRatingBarChangeListener
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("평가를 마치시겠습니까?");
-        builder.setMessage(" 완료 후 포인트 : "+(point+1));
+        builder.setMessage("\n 완료 후 포인트 : "+(point+1));
         builder.setPositiveButton("예",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

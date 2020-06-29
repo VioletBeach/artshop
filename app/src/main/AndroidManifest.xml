@@ -31,7 +31,13 @@
             android:name=".InsertWorks"
             ></activity>
         <activity
-            android:name=".WorkLook"
+        android:name=".WorkLook"
+        ></activity>
+        <activity
+            android:name=".QuestActivity"
+            ></activity>
+        <activity
+            android:name=".NoticeActivity"
             ></activity>
         <activity android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"

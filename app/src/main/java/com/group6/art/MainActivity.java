@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 PopupMenu popup = new PopupMenu(MainActivity.this , menuImage);
                 MenuInflater inf = popup.getMenuInflater();
                 inf.inflate(R.menu.menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(listener);
                 popup.show();
             }
         });
@@ -128,7 +129,27 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+    PopupMenu.OnMenuItemClickListener listener= new PopupMenu.OnMenuItemClickListener() {
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.menu1:
+                    break;
+                case R.id.menu2:
+                    break;
+                case R.id.menu3:
+                    Intent intent = new Intent(getApplicationContext(), NoticeActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.menu4:
+                    Intent intent1 = new Intent(getApplicationContext(), QuestActivity.class);
+                    startActivity(intent1);
+                    break;
+            }
 
+            return false;
+        }
+    };
 
     //탭뷰,리사이러클뷰
     private void initViewPager() {
