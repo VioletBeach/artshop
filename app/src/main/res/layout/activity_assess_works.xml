@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@drawable/comment_stroke"
             >
             <ImageView
                 android:layout_width="37dp"
@@ -34,7 +35,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:text="노을지는 별똥별"
                 android:textSize="30sp"
                 android:textColor="#000000"
                 android:id="@+id/work_title"
@@ -63,7 +63,7 @@
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:id="@+id/work_image"
-        android:background="#BBBBBB" />
+        android:background="#EEEEEE" />
 
     <RelativeLayout
         android:layout_width="match_parent"

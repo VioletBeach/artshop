@@ -24,13 +24,17 @@ public class AssessWorks extends AppCompatActivity {
     Button finish_btn,next_btn;
     float score;
     int point=0;
+    int[] resource=new int[]{R.drawable.work1,R.drawable.work2,R.drawable.work3,R.drawable.work4,R.drawable.work5,
+R.drawable.work6,R.drawable.work7,R.drawable.work8};
+    String[] randomtitle=new String[]{"스파클","보석같은 눈","봄과 벚꽃, 너","노을 위 설산","꽃잎 만개","호수와 가을","사계절이 흐른다",
+    "공허한 정류장"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assess_works);
         Intent intent=getIntent();
         point=intent.getIntExtra("point",point);
-
         heart=findViewById(R.id.heart);
         scoreText=findViewById(R.id.asses_score_text);
         ratingBar=findViewById(R.id.rating_bar);
@@ -40,6 +44,13 @@ public class AssessWorks extends AppCompatActivity {
         finish_btn=findViewById(R.id.finish_btn);
         next_btn=findViewById(R.id.next_btn);
         heart_check=false;
+
+
+
+            int random = (int) (java.lang.Math.random() * 8);
+            work_image.setImageResource(resource[random]);
+            work_title.setText(randomtitle[random]);
+
 
         backImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,9 +66,10 @@ public class AssessWorks extends AppCompatActivity {
                 }
                     else {
                     point++;
-                    Toast.makeText(getApplicationContext(), "평가가 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                    work_image.setImageResource(R.drawable.ic_launcher_foreground);
-                    work_title.setText("바뀔 이미지의 제목");
+                    Toast.makeText(getApplicationContext(), ""+(int)ratingBar.getRating()*2+"점으로 평가가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    int random = (int) (java.lang.Math.random() * 8);
+                    work_image.setImageResource(resource[random]);
+                    work_title.setText(randomtitle[random]);
                     ratingBar.setRating(0);
                     heart.setImageResource(R.drawable.heart_no);
                     heart_check = false;

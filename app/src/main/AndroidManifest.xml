@@ -39,6 +39,12 @@
         <activity
             android:name=".NoticeActivity"
             ></activity>
+        <activity
+            android:name=".UserInfor"
+            ></activity>
+        <activity
+            android:name=".MessengerActivity"
+            ></activity>
         <activity android:name=".LoadingActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:noHistory="true" />

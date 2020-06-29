@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tool="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tool:context=".QuestActivity"
+    tool:context=".UserInfor"
     android:fontFamily="@font/font"
     android:orientation="vertical">
 
@@ -49,7 +49,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/quest"
+        android:src="@drawable/userinfor"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"/>
 

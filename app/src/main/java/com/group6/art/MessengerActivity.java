@@ -7,14 +7,14 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class NoticeActivity extends AppCompatActivity {
+public class MessengerActivity extends AppCompatActivity {
     ImageView back_image,logo;
     View appcolor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notice);  // layout xml 과 자바파일을 연결
+        setContentView(R.layout.activity_messenger);  // layout xml 과 자바파일을 연결
         logo=(ImageView)findViewById(R.id.logo);
         logo.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -134,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onMenuItemClick(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.menu1:
-                    break;
-                case R.id.menu2:
+                    Intent intent2 = new Intent(getApplicationContext(), UserInfor.class);
+                    startActivity(intent2);
                     break;
                 case R.id.menu3:
                     Intent intent = new Intent(getApplicationContext(), NoticeActivity.class);

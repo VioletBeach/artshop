@@ -51,7 +51,7 @@
                 android:layout_centerVertical="true"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:id="@+id/userPage"/>
+                android:id="@+id/mail_image"/>
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
     \

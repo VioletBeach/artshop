@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@drawable/comment_stroke"
             >
             <ImageView
                 android:layout_width="37dp"
@@ -34,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:text="노을지는 별똥별"
+                android:text="사계절은 흐른다"
                 android:textSize="30sp"
                 android:textColor="#000000"
                 android:id="@+id/work_title"
@@ -64,8 +65,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:id="@+id/profile_image"
-            android:src="@drawable/rinny"/>
+            android:id="@+id/profile_image" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,6 +73,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/profile_image"
             android:text="리니 일러스트"
+            android:id="@+id/work_writer"
             android:textColor="#000000"
             android:textSize="17sp"
             />
@@ -83,6 +84,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="0dp"
             android:clickable="false"
+            android:id="@+id/score_btn"
             android:text="9.36" />
     </RelativeLayout>
     <ImageView
@@ -93,7 +95,8 @@
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:id="@+id/work_image"
-        android:background="#BBBBBB" />
+        android:background="#EEEEEE"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,8 +112,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:id="@+id/comment_profile_image"
-            android:src="@drawable/rinny"/>
+            android:id="@+id/comment_profile_image" />
         <EditText
             android:layout_width="250dp"
             android:layout_height="wrap_content"
@@ -144,7 +146,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/comment_user_image1"
-                android:src="@drawable/mania" />
+                android:src="@drawable/comment1" />
             <LinearLayout
                 android:layout_marginLeft="15dp"
                 android:layout_marginVertical="2dp"
@@ -155,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="2dp"
-                    android:text="그림매니아1 · 1시간 전"
+                    android:text="나름 화가다 · 1시간 전"
                     android:textSize="10sp"
                     android:textColor="#888888"
                     />
@@ -179,7 +181,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/comment_user_image2"
-                android:src="@drawable/dream3" />
+                android:src="@drawable/comment2" />
             <LinearLayout
                 android:layout_marginLeft="15dp"
                 android:layout_marginVertical="2dp"
@@ -190,7 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="2dp"
-                    android:text="STAR DREAM3 · 2시간 전"
+                    android:text="JAEHEON13 · 2시간 전"
                     android:textSize="10sp"
                     android:textColor="#888888"
                     />
@@ -214,7 +216,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/comment_user_image3"
-                android:src="@drawable/david" />
+                android:src="@drawable/comment3" />
             <LinearLayout
                 android:layout_marginLeft="15dp"
                 android:layout_marginVertical="2dp"
@@ -225,7 +227,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="2dp"
-                    android:text="David Hockney · 3시간 전"
+                    android:text="화니Hwany · 3시간 전"
                     android:textSize="10sp"
                     android:textColor="#888888"
                     />
@@ -250,7 +252,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:id="@+id/comment_user_image4"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/mania" />
             <LinearLayout
                 android:layout_marginLeft="15dp"
                 android:layout_marginVertical="2dp"
