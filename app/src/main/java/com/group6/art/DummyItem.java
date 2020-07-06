@@ -8,6 +8,9 @@ public class DummyItem {
     String strDummySubtitle;
     String strDummyScore;
 
+    public DummyItem() {
+    }
+    
     public DummyItem(int intDummyImage, String strDummyTitle, String strDummySubtitle,String strDummyScore,int intDummyWriter) {
         this.intDummyImage = intDummyImage;
         this.strDummyTitle = strDummyTitle;
