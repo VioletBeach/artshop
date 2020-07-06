@@ -16,5 +16,9 @@
         <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
+    </option>
+        <option name="ModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
   </component>
 </project>
